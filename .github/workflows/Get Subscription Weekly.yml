@@ -22,13 +22,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip3 install pyYAML requests
+        pip3 install pyYAML requests tqdm
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Collect Subscribe
       id: collect
       run: |
-        cd aggregate/data
+        cd aggregate
         python -u subscribe/collect.py
       
     - name: Create/Update Gist
